@@ -1,0 +1,37 @@
+
+/*
+Online Java - IDE, Code Editor, Compiler
+
+Online Java is a quick and easy tool that helps you to build, compile, test your programs online.
+*/
+
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        System.out.println("enter k:");
+        Scanner sc = new Scanner(System.in);
+        int k = sc.nextInt();
+        String train_set = "iris.data";
+        Calculation.train(train_set);
+        for (int i = 1; i <=k; i++) {
+            Double[] arr = ObjectK.al.get(i-1).params.toArray(new Double[ObjectK.paramNum]);
+            ArrayList<Double> list =  new ArrayList<>();
+            Collections.addAll(list,arr);
+            new Centroids(list, "c"+i);
+        }
+        boolean run = true;
+        double prev_sum=-1;
+        int counter =0;
+        while (run) {
+            counter++;
+            System.out.print("iterration "+counter+": ");
+            Calculation.test();
+            double sum = Calculation.get_sum();
+            if(sum==prev_sum)run=!run;
+            prev_sum=sum;
+            System.out.println(sum);
+        }
+
+    }
+}
