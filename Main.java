@@ -12,22 +12,22 @@ public class Main {
         int k = sc.nextInt();
         String train_set = "iris.data";
         Calculation.train(train_set);
-        for (int i = 1; i <=k; i++) {
-            Double[] arr = ObjectK.al.get(i-1).params.toArray(new Double[ObjectK.paramNum]);
-            ArrayList<Double> list =  new ArrayList<>();
-            Collections.addAll(list,arr);
-            new Centroids(list, "c"+i);
+        for (int i = 1; i <= k; i++) {
+            Double[] arr = ObjectK.al.get(i - 1).params.toArray(new Double[ObjectK.paramNum]);
+            ArrayList<Double> list = new ArrayList<>();
+            Collections.addAll(list, arr);
+            new Centroids(list, "c" + i);
         }
         boolean run = true;
-        double prev_sum=-1;
-        int counter =0;
+        double prev_sum = -1;
+        int counter = 0;
         while (run) {
             counter++;
-            System.out.print("iterration "+counter+": ");
+            System.out.print("iterration " + counter + ": ");
             Calculation.test();
             double sum = Calculation.get_sum();
-            if(sum==prev_sum)run=!run;
-            prev_sum=sum;
+            if (sum == prev_sum) run = !run;
+            prev_sum = sum;
             System.out.println(sum);
         }
         for (Centroids c :

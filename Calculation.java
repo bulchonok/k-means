@@ -28,15 +28,9 @@ public class Calculation {
         for (Centroids centroid :
                 Centroids.al) {
             centroid.list_of_objects.clear();
-            //System.out.println(Arrays.toString(centroid.Vektor));
-        }
-        for (Centroids c :
-                Centroids.al) {
-            //System.out.println(c.name+Arrays.toString(c.Vektor)+"----");
         }
         for (ObjectK obj :
                 ObjectK.al) {
-           // System.out.println(obj);
 
             smallest(obj).list_of_objects.add(obj);
 
@@ -46,24 +40,17 @@ public class Calculation {
                 Centroids.al) {
             centroid.CalculateNewVektor();
         }
-//        for (Centroids c :
-//                Centroids.al) {
-//            System.out.println(c.name+" "+c.list_of_objects);
-//        }
-        for (Centroids centroid :
-                Centroids.al) {
-            //System.out.println(centroid.name + " " + centroid.list_of_objects.toString() + " vec:" + Arrays.toString(centroid.OldVektor));
-            }
+
 
     }
 
-    public static double get_sum(){
+    public static double get_sum() {
         double distsum = 0;
         for (Centroids centroid :
                 Centroids.al) {
             for (ObjectK o :
                     centroid.list_of_objects) {
-                distsum+= centroid.calculateDistance(o);
+                distsum += centroid.calculateDistance(o);
             }
 
         }
@@ -72,13 +59,13 @@ public class Calculation {
 
     public static Centroids smallest(ObjectK objectK) {
         Centroids cNULL = null;
-        double mindistance=Double.MAX_VALUE;
+        double mindistance = Double.MAX_VALUE;
         for (Centroids centroid :
                 Centroids.al) {
             double distance = centroid.calculateDistance(objectK);
-            if (mindistance>distance){
-                mindistance=distance;
-                cNULL=centroid;
+            if (mindistance > distance) {
+                mindistance = distance;
+                cNULL = centroid;
             }
 
         }
