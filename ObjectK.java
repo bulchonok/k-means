@@ -16,4 +16,14 @@ public class ObjectK {
         al.add(this);
     }
 
+    @Override
+    public String toString() {
+        return "{" + group  +
+               "[" + params +
+               "]}";
+    }
+
+    public  String getGroup() {
+        return this.group;
+    }
 }

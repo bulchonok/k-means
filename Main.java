@@ -1,11 +1,9 @@
 
-/*
-Online Java - IDE, Code Editor, Compiler
-
-Online Java is a quick and easy tool that helps you to build, compile, test your programs online.
-*/
 
 import java.util.*;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 public class Main {
     public static void main(String[] args) {
@@ -31,6 +29,11 @@ public class Main {
             if(sum==prev_sum)run=!run;
             prev_sum=sum;
             System.out.println(sum);
+        }
+        for (Centroids c :
+                Centroids.al) {
+            System.out.println(c.name + "" + c.list_of_objects.stream().collect(groupingBy(ObjectK::getGroup, Collectors.counting())) + " :" + c.list_of_objects);
+
         }
 
     }
